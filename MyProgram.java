@@ -4,23 +4,17 @@ public class MyProgram
 {
     public static void main(String[] args)
     {
-        //Testing any angle from user input
-        double angle;
-        System.out.print("Enter any angle to bind to [-180,180) degrees: ");
-        Scanner sc = new Scanner(System.in);
-        angle = sc.nextDouble();
-        System.out.println("Equivalent angle: " + AngleCalc.boundTo180(angle));
+        //Unit tests for boundTo180()
+        System.out.println("360 degrees bounded is: " + AngleCalc.boundTo180(360));
+        System.out.println("270 degrees bounded is: " + AngleCalc.boundTo180(270));
+        System.out.println("-450 degrees bounded is: " + AngleCalc.boundTo180(-450));
+        System.out.println("100 degrees bounded is: " + AngleCalc.boundTo180(100) + "\n");
 
-        //Testing isAngleBetween method from user input
-        double boundOne;
-        double boundTwo;
-        double testAngle;
-        System.out.println("\nPlease enter one of the bounds: ");
-        boundOne = sc.nextDouble();
-        System.out.println("Please enter the other bound: ");
-        boundTwo = sc.nextDouble();
-        System.out.println("Please enter the test angle: ");
-        testAngle = sc.nextDouble();
-        System.out.println("The test angle is within the bounds: " + AngleCalc.isAngleBetween(boundOne, testAngle, boundTwo));
+        //Unit tests for isAngleBetween()
+        System.out.println("-180 is between (-90,110): " + AngleCalc.isAngleBetween(-90,-180,110));
+        System.out.println("-180 is between (-90,80): " + AngleCalc.isAngleBetween(-90,-180,80));
+        System.out.println("90 is between (-45,45): " + AngleCalc.isAngleBetween(-45,90,45));
+        System.out.println("90 is between (45,135): " + AngleCalc.isAngleBetween(45,90,135));
+        System.out.println("0 is between (90,-90): " + AngleCalc.isAngleBetween(90,0,-90));
     }
 }
